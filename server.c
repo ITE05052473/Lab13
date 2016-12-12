@@ -17,11 +17,17 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <sys/wait.h>
 
 #define BUFSIZE 8096
 #define ERROR 42
 #define SORRY 43
 #define LOG   44
+
+
+#ifndef SIGCLD
+#   define SIGCLD SIGCHLD
+#endif
 
 struct {
 	char *ext;
